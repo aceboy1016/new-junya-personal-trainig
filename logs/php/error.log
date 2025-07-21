@@ -1,0 +1,45 @@
+[09-Jul-2025 06:20:31 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/class-wp-customize-widgets.php on line 926
+[10-Jul-2025 02:21:46 UTC] PHP Parse error:  Unclosed '{' on line 39 in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/functions.php on line 920
+[10-Jul-2025 02:21:46 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/class-wp-recovery-mode-email-service.php on line 367
+[10-Jul-2025 02:21:46 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/class-wp-recovery-mode-email-service.php on line 368
+[10-Jul-2025 02:21:47 UTC] PHP Parse error:  Unclosed '{' on line 39 in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/functions.php on line 920
+[10-Jul-2025 02:21:48 UTC] PHP Parse error:  Unclosed '{' on line 39 in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/functions.php on line 920
+[10-Jul-2025 02:28:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function junya_custom_logo() in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/header.php:14
+Stack trace:
+#0 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template.php(810): require_once()
+#1 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template.php(745): load_template('/Users/aceboy/L...', true, Array)
+#2 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#3 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/front-page.php(1): get_header()
+#4 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template-loader.php(106): include('/Users/aceboy/L...')
+#5 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-blog-header.php(19): require_once('/Users/aceboy/L...')
+#6 /Users/aceboy/Local Sites/junya-personal-training/app/public/index.php(17): require('/Users/aceboy/L...')
+#7 {main}
+  thrown in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/header.php on line 14
+[10-Jul-2025 02:28:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function junya_custom_logo() in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/header.php:14
+Stack trace:
+#0 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template.php(810): require_once()
+#1 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template.php(745): load_template('/Users/aceboy/L...', true, Array)
+#2 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#3 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/front-page.php(1): get_header()
+#4 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template-loader.php(106): include('/Users/aceboy/L...')
+#5 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-blog-header.php(19): require_once('/Users/aceboy/L...')
+#6 /Users/aceboy/Local Sites/junya-personal-training/app/public/index.php(17): require('/Users/aceboy/L...')
+#7 {main}
+  thrown in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/header.php on line 14
+[10-Jul-2025 02:32:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function junya_custom_logo() in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/header.php:14
+Stack trace:
+#0 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template.php(810): require_once()
+#1 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template.php(745): load_template('/Users/aceboy/L...', true, Array)
+#2 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#3 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/front-page.php(1): get_header()
+#4 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/template-loader.php(106): include('/Users/aceboy/L...')
+#5 /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-blog-header.php(19): require_once('/Users/aceboy/L...')
+#6 /Users/aceboy/Local Sites/junya-personal-training/app/public/index.php(17): require('/Users/aceboy/L...')
+#7 {main}
+  thrown in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-personal-training/header.php on line 14
+[19-Jul-2025 08:10:08 UTC] PHP Fatal error:  Cannot redeclare junya_luxury_customize_register() (previously declared in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-luxury-training/functions.php:82) in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-content/themes/junya-luxury-training/functions.php on line 387
+[19-Jul-2025 08:10:08 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/class-wp-recovery-mode-email-service.php on line 367
+[19-Jul-2025 08:10:08 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/class-wp-recovery-mode-email-service.php on line 368
+[19-Jul-2025 08:41:28 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/class-wp-customize-widgets.php on line 926
+[19-Jul-2025 09:03:26 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/class-wp-customize-widgets.php on line 926
+[19-Jul-2025 10:04:02 UTC] PHP Warning:  Attempt to read property "title" on null in /Users/aceboy/Local Sites/junya-personal-training/app/public/wp-includes/class-wp-customize-widgets.php on line 926
