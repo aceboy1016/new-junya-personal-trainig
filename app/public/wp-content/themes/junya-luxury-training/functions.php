@@ -555,3 +555,42 @@ function junya_luxury_widgets_init() {
     ));
 }
 add_action('widgets_init', 'junya_luxury_widgets_init');
+
+// Add custom rewrite rules for Sanity blog posts
+function junya_luxury_rewrite_rules() {
+    add_rewrite_rule(
+        '^blog/([^/]+)/?$',
+        'index.php?pagename=blog&sanity_slug=$matches[1]',
+        'top'
+    );
+}
+add_action('init', 'junya_luxury_rewrite_rules');
+
+// Add custom query vars
+function junya_luxury_query_vars($vars) {
+    $vars[] = 'sanity_slug';
+    return $vars;
+}
+add_filter('query_vars', 'junya_luxury_query_vars');
+
+// Handle template redirect for individual blog posts
+function junya_luxury_template_redirect() {
+    $sanity_slug = get_query_var('sanity_slug');
+    
+    if ($sanity_slug && is_page('blog')) {
+        // Load the individual blog post template
+        $template = locate_template('page-blog-post.php');
+        if ($template) {
+            include($template);
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'junya_luxury_template_redirect');
+
+// Flush rewrite rules on theme activation
+function junya_luxury_flush_rewrites() {
+    junya_luxury_rewrite_rules();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'junya_luxury_flush_rewrites');

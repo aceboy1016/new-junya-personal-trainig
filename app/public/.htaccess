@@ -7,6 +7,10 @@
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
+
+# Custom rule for Sanity blog posts - redirect to blog page with slug
+RewriteRule ^blog/([^/]+)/?$ /blog/?slug=$1 [QSA,L]
+
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

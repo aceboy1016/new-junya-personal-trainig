@@ -152,6 +152,7 @@ function junya_luxury_fallback_menu() {
     echo '<li><a href="#profile" class="text-black font-bold tracking-wide hover:text-gold-500 transition-all duration-300 relative group uppercase text-sm px-4 py-2 hover:bg-gold-500/10 rounded-lg">ABOUT<span class="absolute bottom-0 left-4 w-0 h-0.5 bg-gold-gradient group-hover:w-8 transition-all duration-500"></span></a></li>';
     echo '<li><a href="#service-flow" class="text-black font-bold tracking-wide hover:text-gold-500 transition-all duration-300 relative group uppercase text-sm px-4 py-2 hover:bg-gold-500/10 rounded-lg">SERVICE<span class="absolute bottom-0 left-4 w-0 h-0.5 bg-gold-gradient group-hover:w-8 transition-all duration-500"></span></a></li>';
     echo '<li><a href="#pricing" class="text-black font-bold tracking-wide hover:text-gold-500 transition-all duration-300 relative group uppercase text-sm px-4 py-2 hover:bg-gold-500/10 rounded-lg">PRICE<span class="absolute bottom-0 left-4 w-0 h-0.5 bg-gold-gradient group-hover:w-8 transition-all duration-500"></span></a></li>';
+    echo '<li><a href="' . home_url('/blog/') . '" class="text-black font-bold tracking-wide hover:text-gold-500 transition-all duration-300 relative group uppercase text-sm px-4 py-2 hover:bg-gold-500/10 rounded-lg">BLOG<span class="absolute bottom-0 left-4 w-0 h-0.5 bg-gold-gradient group-hover:w-8 transition-all duration-500"></span></a></li>';
     echo '<li><a href="#contact" class="text-black font-bold tracking-wide hover:text-gold-500 transition-all duration-300 relative group uppercase text-sm px-4 py-2 hover:bg-gold-500/10 rounded-lg">CONTACT<span class="absolute bottom-0 left-4 w-0 h-0.5 bg-gold-gradient group-hover:w-8 transition-all duration-500"></span></a></li>';
     echo '</ul>';
 }
@@ -163,6 +164,7 @@ function junya_luxury_fallback_mobile_menu() {
     echo '<li><a href="#profile" class="text-black font-bold uppercase text-lg hover:text-gold-500 transition-colors duration-300 block py-2 border-b border-gray-100">ABOUT</a></li>';
     echo '<li><a href="#service-flow" class="text-black font-bold uppercase text-lg hover:text-gold-500 transition-colors duration-300 block py-2 border-b border-gray-100">SERVICE</a></li>';
     echo '<li><a href="#pricing" class="text-black font-bold uppercase text-lg hover:text-gold-500 transition-colors duration-300 block py-2 border-b border-gray-100">PRICE</a></li>';
+    echo '<li><a href="' . home_url('/blog/') . '" class="text-black font-bold uppercase text-lg hover:text-gold-500 transition-colors duration-300 block py-2 border-b border-gray-100">BLOG</a></li>';
     echo '<li><a href="#contact" class="text-black font-bold uppercase text-lg hover:text-gold-500 transition-colors duration-300 block py-2 border-b border-gray-100">CONTACT</a></li>';
     echo '</ul>';
 }

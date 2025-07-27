@@ -497,7 +497,7 @@
             <div class="space-y-12">
                 <!-- 自己紹介文 -->
                 <div>
-                    <h3 class="text-4xl font-black text-black">石原 準也</h3>
+                    <h3 class="text-4xl font-black text-black">石原 淳哉</h3>
                     <p class="text-lg font-bold text-gold-500 mb-4">パーソナルトレーナー</p>
                 </div>
 
