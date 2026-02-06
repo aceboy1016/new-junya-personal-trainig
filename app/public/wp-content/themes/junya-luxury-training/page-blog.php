@@ -116,7 +116,7 @@ const SANITY_CONFIG = {
     projectId: '8gquylv3',
     dataset: 'production',
     apiVersion: '2024-01-01',
-    useCdn: true
+    useCdn: false
 };
 
 // Sanity client

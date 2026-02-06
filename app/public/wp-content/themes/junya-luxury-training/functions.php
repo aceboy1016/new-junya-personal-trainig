@@ -34,7 +34,7 @@ add_action('after_setup_theme', 'junya_luxury_setup');
 // Enqueue scripts and styles
 function junya_luxury_scripts() {
     // Enqueue Tailwind CSS from CDN first
-    wp_enqueue_style('tailwind-css', 'https://cdn.tailwindcss.com', array(), '3.4.0');
+    wp_enqueue_style('tailwind-css', get_template_directory_uri() . '/dist/css/style.css', array(), '1.0.0');
     
     // Enqueue Remixicon
     wp_enqueue_style('remixicon', 'https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css', array(), '3.5.0');

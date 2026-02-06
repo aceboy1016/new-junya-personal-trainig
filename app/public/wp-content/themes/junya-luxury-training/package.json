@@ -1,0 +1,17 @@
+{
+  "name": "junya-luxury-training",
+  "version": "1.0.0",
+  "description": "石原淳哉パーソナルトレーニング用の高級感あふれるWordPressテーマです。",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./dist/css/style.css",
+    "watch": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./dist/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}
