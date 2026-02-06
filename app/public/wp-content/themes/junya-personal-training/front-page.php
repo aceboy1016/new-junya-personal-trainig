@@ -35,6 +35,91 @@ if ($hero_bg_custom) {
     </div>
 </section>
 
+<!-- Why Me Section (図解・グラフ付き) -->
+<section id="why-me" class="why-me-section">
+    <h2 class="section-title">選ばれる理由</h2>
+    <p class="section-subtitle">科学的根拠と経験に基づいた、あなただけのオーダーメイドプログラム</p>
+
+    <div class="why-me-grid">
+        <!-- 理由1: トータルサポート（レーダーチャート風） -->
+        <div class="why-card">
+            <div class="card-header">
+                <span class="card-number">01</span>
+                <h3>多角的なアプローチ</h3>
+            </div>
+            <p class="card-desc">単なる筋トレだけではありません。身体の機能を高めるための要素をバランスよく組み合わせます。</p>
+            
+            <div class="chart-container">
+                <!-- CSSで描画するレーダーチャート風デザイン -->
+                <div class="radar-chart-visual">
+                    <div class="radar-axis axis-1"></div>
+                    <div class="radar-axis axis-2"></div>
+                    <div class="radar-axis axis-3"></div>
+                    <div class="radar-shape"></div>
+                    <div class="radar-label label-top">筋力</div>
+                    <div class="radar-label label-right-top">柔軟性</div>
+                    <div class="radar-label label-right-bottom">姿勢</div>
+                    <div class="radar-label label-bottom">持久力</div>
+                    <div class="radar-label label-left-bottom">栄養</div>
+                    <div class="radar-label label-left-top">休養</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 理由2: 成長プロセス（ステップアップ図） -->
+        <div class="why-card">
+            <div class="card-header">
+                <span class="card-number">02</span>
+                <h3>確実なステップアップ</h3>
+            </div>
+            <p class="card-desc">いきなりハードな運動は行いません。身体の状態に合わせて段階的に負荷を上げていきます。</p>
+            
+            <div class="step-chart-visual">
+                <div class="step-item step-1">
+                    <span class="step-label">評価</span>
+                    <div class="step-bar"></div>
+                </div>
+                <div class="step-item step-2">
+                    <span class="step-label">改善</span>
+                    <div class="step-bar"></div>
+                </div>
+                <div class="step-item step-3">
+                    <span class="step-label">強化</span>
+                    <div class="step-bar"></div>
+                </div>
+                <div class="step-item step-4">
+                    <span class="step-label">定着</span>
+                    <div class="step-bar"></div>
+                </div>
+                <div class="growth-arrow"></div>
+            </div>
+        </div>
+
+        <!-- 理由3: コンディショニング（比較図） -->
+        <div class="why-card">
+            <div class="card-header">
+                <span class="card-number">03</span>
+                <h3>コンディショニング重視</h3>
+            </div>
+            <p class="card-desc">「鍛える」前に「整える」。マイナスをゼロにし、そこからプラスを作るアプローチです。</p>
+            
+            <div class="comparison-visual">
+                <div class="comp-item bad">
+                    <div class="comp-icon"><i class="ri-close-circle-line"></i></div>
+                    <h4>一般的なジム</h4>
+                    <p>痛みや歪みがあるまま<br>高負荷トレーニング</p>
+                </div>
+                <div class="comp-arrow"><i class="ri-arrow-right-line"></i></div>
+                <div class="comp-item good">
+                    <div class="comp-icon"><i class="ri-checkbox-circle-line"></i></div>
+                    <h4>当ジム</h4>
+                    <p>まず不調を取り除き<br>機能的な身体へ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- サービス流れ -->
 <section id="service-flow" class="service-flow">
     <h2 class="section-title">初回サービスの流れ</h2>
@@ -278,11 +363,10 @@ if ($testimonials) :
     <h2 class="section-title">トレーナープロフィール</h2>
     
     <div class="profile-container">
-        <!-- プロフィールヘッダー（横並び2カラム） -->
-        <div class="profile-main-content" style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; margin-top: 3rem;">
-            <!-- 左側：画像 -->
-            <div class="profile-image-section">
-                <div class="profile-main-image">
+        <!-- プロフィールヘッダー（画像 + 紹介文） -->
+        <div class="profile-header-section">
+            <div class="profile-image-wrapper">
+                <div class="profile-image-inner">
                     <?php 
                     $profile_main_image = get_post_meta(get_the_ID(), '_junya_profile_main_image', true);
                     $profile_id = get_post_meta(get_the_ID(), '_profile_image', true);
@@ -295,69 +379,131 @@ if ($testimonials) :
                     }
                     ?>
                 </div>
+                <div class="profile-badge">
+                    <span class="badge-text">NASM-PES</span>
+                    <span class="badge-sub">Certified</span>
+                </div>
             </div>
             
-            <!-- 右側：テキスト -->
-            <div class="profile-text-section">
-                <h3 class="trainer-name" style="font-size: 2rem; color: #333; margin-bottom: 0.5rem; font-weight: 700;">石原 淳哉</h3>
-                <p class="trainer-title" style="font-size: 1.2rem; color: #3498db; margin-bottom: 2rem; font-weight: 500;">パーソナルトレーナー</p>
+            <div class="profile-intro-content">
+                <div class="name-group">
+                    <h3 class="trainer-name-jp">石原 淳哉</h3>
+                    <span class="trainer-name-en">JUNYA ISHIHARA</span>
+                </div>
+                <p class="trainer-job-title">パーソナルトレーナー / コンディショニングスペシャリスト</p>
                 
-                <p class="trainer-intro" style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 1.5rem;">コンディショニングを重視したパーソナルトレーニングで、お客様の身体の問題解決と目標達成をサポートしています。</p>
-                <p class="trainer-intro" style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 1.5rem;">高校時代は「ホネカワスネオ」と呼ばれるほど痩せ型で運動に苦労した経験があります。その経験を活かし、運動初心者の方にも安心してトレーニングを受けていただけるよう心がけています。</p>
-                <p class="trainer-intro" style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 1.5rem;">単なる筋力トレーニングではなく、身体の動きを改善し、機能的な状態に整えるコンディショニングアプローチで、日常生活の質向上を目指します。</p>
+                <div class="trainer-message">
+                    <p>「痩せたい」「痛みをとりたい」「もっと動けるようになりたい」<br>
+                    お客様のそんな想いに、科学的根拠と情熱を持ってお応えします。</p>
+                    <p>かつて「ホネカワスネオ」と呼ばれた自身の経験から、身体が変わる喜びと、その難しさを誰よりも理解しています。だからこそ、一人ひとりに寄り添った『ちょうどいい』トレーニングを提案できるのです。</p>
+                </div>
             </div>
         </div>
         
-        <!-- プロフィール詳細グリッド -->
-        <div class="profile-details-grid" style="margin-top: 4rem;">
+        <!-- ビジュアルコンテンツグリッド -->
+        <div class="profile-visual-grid">
             
-            <!-- 学歴・資格 -->
-            <div class="profile-detail-card">
-                <div class="profile-detail-header">
-                    <span class="profile-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg></span>
-                    <h4>学歴・資格</h4>
-                </div>
-                <div class="profile-detail-content">
-                    <ul class="profile-list">
-                        <li>日本大学文理学部体育学科卒業</li>
-                        <li>全米スポーツ医学協会認定パフォーマンス向上専門資格（NASM-PES）</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 職歴・経験 -->
-            <div class="profile-detail-card">
-                <div class="profile-detail-header">
-                    <span class="profile-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.07a2.25 2.25 0 0 1-2.25 2.25H5.998a2.25 2.25 0 0 1-2.25-2.25v-4.07a2.25 2.25 0 0 1 .918-1.756l6.099-3.466a2.25 2.25 0 0 1 2.466 0l6.1 3.466a2.25 2.25 0 0 1 .917 1.756Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 10.875a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5ZM15.75 10.875a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" /></svg></span>
-                    <h4>職歴・経験</h4>
-                </div>
-                <div class="profile-detail-content">
-                    <ul class="profile-list">
-                        <li>都内フィットネスクラブ在籍（2014-2017年）</li>
-                        <li>都内パーソナルトレーニングジム在籍・パーソナルトレーニング/測定機器の営業経験（2017-2019年）スポルテック2018出展</li>
-                        <li>パーソナルトレーニングジム「ダ・ヴィンチ」（TOPFORMの前身）勤務（2019年〜）</li>
-                        <li>株式会社HALLEL 運営に携わる（2023年〜）</li>
-                        <li>湘南学院高等学校男子バレーボール部 ストレングストレーナー（2025年1月〜）</li>
-                        <li>現在、TOPFORM恵比寿店・半蔵門店で勤務</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 専門分野・強み -->
-            <div class="profile-detail-card">
-                <div class="profile-detail-header">
-                    <span class="profile-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></span>
-                    <h4>専門分野・強み</h4>
-                </div>
-                <div class="profile-detail-content">
-                    <ul class="profile-list">
-                        <li>世界基準のフィジカルテスト実施</li>
-                        <li>疼痛改善・姿勢改善指導</li>
-                        <li>ボディメイク・パフォーマンス向上指導</li>
-                    </ul>
+            <!-- 左カラム：経歴（タイムライン） -->
+            <div class="profile-column history-column">
+                <h4 class="column-title"><i class="ri-history-line"></i> 経歴・実績</h4>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2014-2017</div>
+                        <div class="timeline-content">
+                            <h5>都内フィットネスクラブ</h5>
+                            <p>トレーナーとしての基礎を築く</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2017-2019</div>
+                        <div class="timeline-content">
+                            <h5>パーソナルトレーナー独立</h5>
+                            <p>都内ジムでの指導・測定機器営業<br>スポルテック2018出展経験</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019〜</div>
+                        <div class="timeline-content">
+                            <h5>TOPFORM（旧ダ・ヴィンチ）</h5>
+                            <p>パーソナルトレーナーとして勤務開始</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023〜</div>
+                        <div class="timeline-content">
+                            <h5>株式会社HALLEL</h5>
+                            <p>運営参画・マネジメント業務</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-year">2025.01〜</div>
+                        <div class="timeline-content">
+                            <h5>湘南学院高等学校 男子バレーボール部</h5>
+                            <p>ストレングストレーナー就任</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- 右カラム：スキル＆資格（図解風） -->
+            <div class="profile-column skills-column">
+                
+                <!-- 専門分野（スキルバー） -->
+                <div class="skills-section">
+                    <h4 class="column-title"><i class="ri-focus-3-line"></i> 専門分野</h4>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>姿勢改善・機能改善</span>
+                                <span class="skill-percent">100%</span>
+                            </div>
+                            <div class="skill-progress"><div class="skill-fill" style="width: 100%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>疼痛改善（腰痛・肩こり等）</span>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="skill-progress"><div class="skill-fill" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>ボディメイク</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-progress"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-info">
+                                <span>パフォーマンス向上</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-progress"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 資格（バッジスタイル） -->
+                <div class="qualifications-section">
+                    <h4 class="column-title"><i class="ri-award-line"></i> 保有資格</h4>
+                    <div class="badges-grid">
+                        <div class="badge-item">
+                            <span class="badge-icon">🎓</span>
+                            <div class="badge-details">
+                                <span class="badge-label">日本大学文理学部</span>
+                                <span class="badge-name">体育学科 卒業</span>
+                            </div>
+                        </div>
+                        <div class="badge-item gold">
+                            <span class="badge-icon">🏆</span>
+                            <div class="badge-details">
+                                <span class="badge-label">全米スポーツ医学協会</span>
+                                <span class="badge-name">NASM-PES</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- プロフィールギャラリー -->
@@ -372,8 +518,8 @@ if ($testimonials) :
         
         if (!empty($gallery_images)):
         ?>
-        <div class="profile-gallery" style="margin-top: 4rem;">
-            <h4 class="gallery-title">ギャラリー</h4>
+        <div class="profile-gallery">
+            <h4 class="gallery-title">GALLERY</h4>
             <div class="gallery-grid">
                 <?php foreach ($gallery_images as $index => $image_url): ?>
                 <div class="gallery-item">

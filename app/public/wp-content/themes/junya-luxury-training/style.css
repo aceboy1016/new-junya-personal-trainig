@@ -80,7 +80,7 @@ body {
         color: black !important;
         font-size: 12pt;
     }
-    
+
     .no-print {
         display: none !important;
     }
@@ -159,8 +159,8 @@ select:focus {
 }
 
 .hero-bg {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), 
-                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+        url('assets/images/hero-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -172,11 +172,25 @@ select:focus {
 }
 
 /* Custom gold colors */
-.text-gold-400 { color: #FBBF24; }
-.text-gold-500 { color: #F59E0B; }
-.text-gold-600 { color: #D97706; }
-.border-gold-500 { border-color: #F59E0B; }
-.bg-gold-500 { background-color: #F59E0B; }
+.text-gold-400 {
+    color: #FBBF24;
+}
+
+.text-gold-500 {
+    color: #F59E0B;
+}
+
+.text-gold-600 {
+    color: #D97706;
+}
+
+.border-gold-500 {
+    border-color: #F59E0B;
+}
+
+.bg-gold-500 {
+    background-color: #F59E0B;
+}
 
 /* Shadows */
 .shadow-3xl {
@@ -194,6 +208,7 @@ select:focus {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -201,24 +216,36 @@ select:focus {
 }
 
 @keyframes bounce {
-    0%, 20%, 53%, 80%, 100% {
+
+    0%,
+    20%,
+    53%,
+    80%,
+    100% {
         transform: translateY(0);
     }
-    40%, 43% {
+
+    40%,
+    43% {
         transform: translateY(-10px);
     }
+
     70% {
         transform: translateY(-5px);
     }
+
     90% {
         transform: translateY(-2px);
     }
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }
@@ -238,10 +265,10 @@ select:focus {
 
 /* Enhanced hero background */
 .hero-bg {
-    background: 
-        linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), 
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)),
         radial-gradient(ellipse at center, rgba(245, 158, 11, 0.1) 0%, transparent 70%),
-        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        url('assets/images/hero-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -274,7 +301,12 @@ select:focus {
 }
 
 /* Improved typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 900;
     letter-spacing: -0.025em;
 }
@@ -337,7 +369,7 @@ section:not(#home)::before {
     z-index: 1;
 }
 
-section > * {
+section>* {
     position: relative;
     z-index: 2;
 }
@@ -415,7 +447,7 @@ section > * {
         font-size: 3rem !important;
         line-height: 1.1;
     }
-    
+
     .hero-bg p {
         font-size: 1.1rem !important;
     }
@@ -444,6 +476,7 @@ section > * {
     0% {
         background-position: -200% 0;
     }
+
     100% {
         background-position: 200% 0;
     }

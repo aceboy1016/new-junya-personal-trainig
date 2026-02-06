@@ -516,32 +516,32 @@ function renderIndividualPost(post) {
         </section>
 
         <!-- Article Content -->
-        <section class="py-12 bg-white">
+        <section class="py-16 bg-white">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-3xl mx-auto">
                     <!-- Categories -->
                     ${post.categories && post.categories.length > 0 ? `
-                        <div class="mb-6">
+                        <div class="mb-8">
                             ${post.categories.map(category => 
-                                `<span class="inline-block px-3 py-1 rounded-full text-sm font-medium" style="background-color:${category.color || '#F59E0B'};color:white">
+                                `<span class="inline-block px-4 py-2 rounded-full text-sm font-medium mr-2" style="background-color:${category.color || '#F59E0B'};color:white">
                                     ${category.title}
                                 </span>`
-                            ).join(' ')}
+                            ).join('')}
                         </div>
                     ` : ''}
 
                     <!-- Title -->
-                    <h1 class="text-4xl md:text-5xl font-black text-black leading-tight mb-6">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-black leading-tight mb-8">
                         ${post.title}
                     </h1>
 
                     <!-- Meta info -->
-                    <div class="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-gray-200">
-                        <div class="flex items-center gap-3">
+                    <div class="flex flex-wrap items-center gap-6 mb-12 pb-8 border-b border-gray-200">
+                        <div class="flex items-center gap-4">
                             ${post.author?.image ? 
-                                `<img src="${imageUrl(post.author.image, {width: 40, height: 40})}" alt="${post.author.name}" class="w-10 h-10 rounded-full object-cover">` : 
-                                `<div class="w-10 h-10 bg-gold-500 rounded-full flex items-center justify-center">
-                                    <i class="ri-user-line text-white"></i>
+                                `<img src="${imageUrl(post.author.image, {width: 48, height: 48})}" alt="${post.author.name}" class="w-12 h-12 rounded-full object-cover">` : 
+                                `<div class="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center">
+                                    <i class="ri-user-line text-white text-lg"></i>
                                 </div>`
                             }
                             <div>
@@ -558,20 +558,20 @@ function renderIndividualPost(post) {
                     <!-- Featured Image -->
                     ${post.mainImage ? `
                         <div class="mb-12">
-                            <div class="aspect-video rounded-lg overflow-hidden">
-                                <img src="${imageUrl(post.mainImage, {width: 1200, height: 675})}" alt="${post.mainImage.alt || post.title}" class="w-full h-full object-cover">
+                            <div class="aspect-video rounded-xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
+                                <img src="${imageUrl(post.mainImage, {width: 800, height: 450})}" alt="${post.mainImage.alt || post.title}" class="w-full h-full object-cover">
                             </div>
                         </div>
                     ` : ''}
 
                     <!-- Article Body -->
-                    <div class="prose prose-lg max-w-none prose-headings:text-black prose-headings:font-bold prose-h2:border-b-2 prose-h2:border-gold-500 prose-h2:pb-2 prose-a:text-gold-500 prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-4 prose-blockquote:border-gold-500 prose-blockquote:bg-gray-50 prose-blockquote:font-normal">
+                    <div class="max-w-none">
                         ${portableTextToHtml(post.body)}
                     </div>
 
                     <!-- Back to Blog -->
-                    <div class="mt-12 pt-8 border-t border-gray-200 text-center">
-                        <button onclick="backToBlog()" class="bg-gold-gradient text-white px-8 py-4 font-bold tracking-wide hover:shadow-lg transition-all duration-300 uppercase text-sm inline-block cursor-pointer">
+                    <div class="mt-16 pt-8 border-t border-gray-200 text-center">
+                        <button onclick="backToBlog()" class="inline-flex items-center bg-gold-gradient text-white px-8 py-4 font-bold tracking-wide hover:shadow-xl transition-all duration-300 uppercase text-sm rounded-lg cursor-pointer">
                             <i class="ri-arrow-left-line mr-2"></i>ブログ一覧に戻る
                         </button>
                     </div>
@@ -585,40 +585,138 @@ function renderIndividualPost(post) {
     heroSection.insertAdjacentHTML('afterend', postHTML);
 }
 
-// Convert Portable Text to HTML (same function as in page-blog-post.php)
+// Convert Portable Text to HTML
 function portableTextToHtml(blocks) {
     if (!blocks) return '';
     
-    return blocks.map(block => {
+    // Group consecutive list items
+    const processedBlocks = [];
+    let currentList = null;
+    
+    blocks.forEach((block, index) => {
+        if (block._type === 'block' && block.listItem) {
+            // This is a list item
+            if (!currentList || currentList.listItem !== block.listItem) {
+                // Start a new list
+                currentList = {
+                    _type: 'list',
+                    listItem: block.listItem,
+                    children: []
+                };
+                processedBlocks.push(currentList);
+            }
+            currentList.children.push(block);
+        } else {
+            // Not a list item, close current list and add block
+            currentList = null;
+            processedBlocks.push(block);
+        }
+    });
+    
+    return processedBlocks.map(block => {
         if (block._type === 'block') {
             const children = block.children?.map(child => {
-                if (child.marks?.includes('strong')) {
-                    return `<strong>${child.text}</strong>`;
+                let text = child.text || '';
+                
+                // Apply marks in the correct order
+                if (child.marks && child.marks.length > 0) {
+                    child.marks.forEach(mark => {
+                        switch (mark) {
+                            case 'strong':
+                                text = `<strong>${text}</strong>`;
+                                break;
+                            case 'em':
+                                text = `<em>${text}</em>`;
+                                break;
+                            case 'underline':
+                                text = `<u>${text}</u>`;
+                                break;
+                            case 'code':
+                                text = `<code class="bg-gray-100 px-2 py-1 rounded text-sm">${text}</code>`;
+                                break;
+                        }
+                    });
                 }
-                if (child.marks?.includes('em')) {
-                    return `<em>${child.text}</em>`;
-                }
-                return child.text;
+                
+                return text;
             }).join('') || '';
 
-            switch (block.style) {
-                case 'h1': return `<h1>${children}</h1>`;
-                case 'h2': return `<h2>${children}</h2>`;
-                case 'h3': return `<h3>${children}</h3>`;
-                case 'h4': return `<h4>${children}</h4>`;
-                case 'blockquote': return `<blockquote>${children}</blockquote>`;
-                default: return `<p>${children}</p>`;
+            // Handle different block styles
+            switch (block.style || 'normal') {
+                case 'h1': 
+                    return `<h1 class="text-4xl font-black text-black mb-8 mt-12 leading-tight">${children}</h1>`;
+                case 'h2': 
+                    return `<h2 class="text-3xl font-bold text-black mb-6 mt-10 border-b-2 border-gold-500 pb-2">${children}</h2>`;
+                case 'h3': 
+                    return `<h3 class="text-2xl font-bold text-black mb-4 mt-8">${children}</h3>`;
+                case 'h4': 
+                    return `<h4 class="text-xl font-bold text-black mb-3 mt-6">${children}</h4>`;
+                case 'h5': 
+                    return `<h5 class="text-lg font-bold text-black mb-3 mt-6">${children}</h5>`;
+                case 'h6': 
+                    return `<h6 class="text-base font-bold text-black mb-2 mt-4">${children}</h6>`;
+                case 'blockquote': 
+                    return `<blockquote class="border-l-4 border-gold-500 bg-gray-50 py-4 px-6 my-8 italic text-lg">${children}</blockquote>`;
+                case 'normal':
+                default: 
+                    // Don't render empty paragraphs
+                    if (!children.trim()) return '';
+                    return `<p class="text-gray-700 leading-relaxed mb-6">${children}</p>`;
             }
         }
         
         if (block._type === 'image') {
-            const src = imageUrl(block, {width: 800, quality: 90});
+            const src = imageUrl(block, {width: 600, height: 400, quality: 85});
             const alt = block.alt || '';
-            return `<img src="${src}" alt="${alt}" class="w-full rounded-lg my-8">`;
+            const caption = block.caption ? `<figcaption class="text-sm text-gray-600 text-center mt-2 italic">${block.caption}</figcaption>` : '';
+            
+            return `<figure class="my-8">
+                <img src="${src}" alt="${alt}" class="w-full max-w-lg mx-auto rounded-lg shadow-lg block">
+                ${caption}
+            </figure>`;
+        }
+        
+        // Handle grouped lists
+        if (block._type === 'list') {
+            const items = block.children.map(item => {
+                const itemChildren = item.children?.map(child => {
+                    let text = child.text || '';
+                    
+                    // Apply marks
+                    if (child.marks && child.marks.length > 0) {
+                        child.marks.forEach(mark => {
+                            switch (mark) {
+                                case 'strong':
+                                    text = `<strong>${text}</strong>`;
+                                    break;
+                                case 'em':
+                                    text = `<em>${text}</em>`;
+                                    break;
+                                case 'underline':
+                                    text = `<u>${text}</u>`;
+                                    break;
+                                case 'code':
+                                    text = `<code class="bg-gray-100 px-2 py-1 rounded text-sm">${text}</code>`;
+                                    break;
+                            }
+                        });
+                    }
+                    
+                    return text;
+                }).join('') || '';
+                
+                return `<li class="mb-2 text-gray-700 leading-relaxed">${itemChildren}</li>`;
+            }).join('');
+            
+            if (block.listItem === 'bullet') {
+                return `<ul class="list-disc list-outside my-6 pl-6 space-y-2">${items}</ul>`;
+            } else if (block.listItem === 'number') {
+                return `<ol class="list-decimal list-outside my-6 pl-6 space-y-2">${items}</ol>`;
+            }
         }
         
         return '';
-    }).join('');
+    }).filter(html => html.trim() !== '').join('');
 }
 
 // Back to blog function

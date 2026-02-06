@@ -98,7 +98,7 @@ function junya_luxury_customize_register($wp_customize) {
     ));
     
     $wp_customize->add_setting('hero_title', array(
-        'default' => '『しなきゃ』を<br><span class="text-gradient">『したい！』</span><br>に変える',
+        'default' => '<span class="text-gradient">変化</span>を実感するから<br><span class="text-gradient">自然</span>と続けたくなる',
         'sanitize_callback' => 'wp_kses_post',
     ));
     
@@ -109,7 +109,7 @@ function junya_luxury_customize_register($wp_customize) {
     ));
     
     $wp_customize->add_setting('hero_description', array(
-        'default' => 'お客様一人ひとりの身体と目標に合わせた『ちょうどいい』トレーニングで、健康で充実した毎日をサポートします',
+        'default' => '根本から改善するアプローチで、見た目も体調も確実に変化を実感',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     
@@ -137,7 +137,7 @@ function junya_luxury_customize_register($wp_customize) {
     ));
     
     $wp_customize->add_setting('contact_email', array(
-        'default' => 'info@junya-training.com',
+        'default' => 'junya1995@gmail.com',
         'sanitize_callback' => 'sanitize_email',
     ));
     
@@ -145,6 +145,136 @@ function junya_luxury_customize_register($wp_customize) {
         'label' => __('メールアドレス', 'junya-luxury'),
         'section' => 'contact_info',
         'type' => 'email',
+    ));
+    
+    $wp_customize->add_setting('google_form_url', array(
+        'default' => '#',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    
+    $wp_customize->add_control('google_form_url', array(
+        'label' => __('GoogleフォームURL', 'junya-luxury'),
+        'section' => 'contact_info',
+        'type' => 'url',
+    ));
+    
+    $wp_customize->add_setting('line_url', array(
+        'default' => '#',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    
+    $wp_customize->add_control('line_url', array(
+        'label' => __('LINE公式アカウントURL', 'junya-luxury'),
+        'section' => 'contact_info',
+        'type' => 'url',
+    ));
+
+    // Testimonials Section
+    $wp_customize->add_section('testimonials_section', array(
+        'title' => __('お客様の声', 'junya-luxury'),
+        'priority' => 36,
+    ));
+    
+    // Testimonial 1
+    $wp_customize->add_setting('testimonial_1_name', array(
+        'default' => 'A.K様',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_1_name', array(
+        'label' => __('お客様の声1 - お名前', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'text',
+    ));
+    
+    $wp_customize->add_setting('testimonial_1_info', array(
+        'default' => '20代女性・会社員',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_1_info', array(
+        'label' => __('お客様の声1 - 詳細情報', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'text',
+    ));
+    
+    $wp_customize->add_setting('testimonial_1_text', array(
+        'default' => 'トレーニング初心者の私でも、石原さんの丁寧で分かりやすい指導のおかげで、3ヶ月で理想の体型に近づくことができました。科学的なアプローチで効率的に結果が出て驚いています。',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_1_text', array(
+        'label' => __('お客様の声1 - テキスト', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'textarea',
+    ));
+    
+    // Testimonial 2
+    $wp_customize->add_setting('testimonial_2_name', array(
+        'default' => 'M.T様',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_2_name', array(
+        'label' => __('お客様の声2 - お名前', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'text',
+    ));
+    
+    $wp_customize->add_setting('testimonial_2_info', array(
+        'default' => '40代男性・経営者',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_2_info', array(
+        'label' => __('お客様の声2 - 詳細情報', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'text',
+    ));
+    
+    $wp_customize->add_setting('testimonial_2_text', array(
+        'default' => '長年の腰痛に悩んでいましたが、石原さんのコンディショニング指導により大幅に改善されました。プロフェッショナルな知識と技術、そして親身なサポートに本当に感謝しています。',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_2_text', array(
+        'label' => __('お客様の声2 - テキスト', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'textarea',
+    ));
+    
+    // Testimonial 3
+    $wp_customize->add_setting('testimonial_3_name', array(
+        'default' => 'R.S様',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_3_name', array(
+        'label' => __('お客様の声3 - お名前', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'text',
+    ));
+    
+    $wp_customize->add_setting('testimonial_3_info', array(
+        'default' => '30代男性・アスリート',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_3_info', array(
+        'label' => __('お客様の声3 - 詳細情報', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'text',
+    ));
+    
+    $wp_customize->add_setting('testimonial_3_text', array(
+        'default' => '競技パフォーマンス向上のためのトレーニングを依頼しました。最新の科学的知識に基づいた指導で、明確な改善が実感できています。プロとしての経験と知識の深さが違います。',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    
+    $wp_customize->add_control('testimonial_3_text', array(
+        'label' => __('お客様の声3 - テキスト', 'junya-luxury'),
+        'section' => 'testimonials_section',
+        'type' => 'textarea',
     ));
 
     // Access & Map Section
@@ -168,7 +298,7 @@ function junya_luxury_customize_register($wp_customize) {
 
     // Hanzomon Address
     $wp_customize->add_setting('hanzomon_location_address', array(
-        'default' => '〒102-0082 東京都千代田区一番町10-8 一番町ウエストビルB1<br>東京メトロ半蔵門線「半蔵門駅」4番出口から徒歩2分',
+        'default' => '〒102-0082 東京都千代田区一番町10-8 一番町ウエストビルB1<br>東京メトロ半蔵門線<span class="text-gold-500 font-semibold">「半蔵門駅」</span>4番出口から<span class="text-gold-500 font-semibold">徒歩2分</span>',
         'sanitize_callback' => 'wp_kses_post',
     ));
     $wp_customize->add_control('hanzomon_location_address_control', array(
@@ -205,7 +335,7 @@ function junya_luxury_customize_register($wp_customize) {
 
     // Ebisu Address
     $wp_customize->add_setting('ebisu_location_address', array(
-        'default' => '〒150-0022 東京都渋谷区恵比寿南2-3-11 グレース青山2F<br>JR・東京メトロ日比谷線「恵比寿駅」西口から徒歩3分',
+        'default' => '〒150-0022 東京都渋谷区恵比寿南2-3-11 グレース青山2F<br>JR・東京メトロ日比谷線<span class="text-gold-500 font-semibold">「恵比寿駅」</span>西口から<span class="text-gold-500 font-semibold">徒歩3分</span>',
         'sanitize_callback' => 'wp_kses_post',
     ));
     $wp_customize->add_control('ebisu_location_address_control', array(
